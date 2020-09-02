@@ -1,0 +1,241 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: url("./img/chalkboard.jpg") 0 50% no-repeat #000000;
+  background-size: cover;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.header {
+  text-align: center;
+  padding: 40px 0;
+  letter-spacing: 2px;
+}
+
+.header__title {
+  margin: 0;
+  padding: 0;
+  font-size: 42px;
+  line-height: 47px;
+  font-weight: 600;
+}
+
+.field__wrapper {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.start-message {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 100;
+}
+.start-message--disable {
+  display: none;
+}
+
+.start-button {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  top: -10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 5px 25px;
+  background: #004ea8;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+  letter-spacing: 4px;
+}
+.start-button:focus {
+  outline: none;
+  box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+.field {
+  display: flex;
+  max-width: 620px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.field--disable {
+  opacity: 0.3;
+  touch-action: none;
+}
+
+.card {
+  font-family: Arial, sans-serif;
+  display: flex;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 25px;
+  background: transparent;
+  cursor: pointer;
+  perspective: 600px;
+}
+
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s, border-color 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 9px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+.is-flipped .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__back, .card__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card__back {
+  background: url('./img/back.jpg') 50% 50% no-repeat;
+  background-size: contain;
+}
+
+.card__image {
+  font-size: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transform: rotateY(180deg);
+  transition: opacity 0.8s;
+}
+
+.success .card__inner {
+  transform: rotateY(180deg);
+}
+.success .card__image {
+  opacity: 0.5;
+}
+
+.timer {
+  color: #ffffff;
+  font-size: 45px;
+  line-height: 36px;
+  margin-top: 25px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 7px;
+}
+
+/*popup*/
+
+.popup-overlay {
+  transition: opacity 0.3s ease-in;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.51);
+  pointer-events: none;
+}
+
+.popup__wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in;
+  transform: scale(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.popup {
+  padding: 30px;
+  text-align: center;
+  background: #ffffff;
+  margin: auto;
+  min-width: 350px;
+}
+
+.popup__text {
+  font-size: 48px;
+  color: #434344;
+  font-weight: 600;
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+}
+  .popup__text span {
+    display: block;
+  }
+.popup__btn button {
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 5px 30px;
+  background: #002a54;
+  border: 0;
+  border-radius: 9px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.popup__btn button:focus {
+  outline: none;
+  box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+/*!*animation*!*/
+/*.popup__text span:nth-child(1) {*/
+/*  animation: jump 500ms ease 0ms infinite alternate;*/
+/*}*/
+
+/*.popup__text span:nth-child(2) {*/
+/*  animation: jump 500ms ease 86.25ms infinite alternate;*/
+/*}*/
+
+/*.popup__text span:nth-child(3)  {*/
+/*  animation: jump 500ms ease 172.5ms infinite alternate;*/
+/*}*/
+
+/*.popup__text span:nth-child(4)  {*/
+/*  animation: jump 500ms ease 258.75ms infinite alternate;*/
+/*}*/
+
+/*@keyframes jump {*/
+/*  from {*/
+/*    transform: scaleY(0.5) translateY(0px) rotateX(15deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: scaleY(1) translateY(-10px) rotateX(0deg);*/
+/*  }*/
+/*}*/

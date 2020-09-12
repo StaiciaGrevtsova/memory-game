@@ -209,6 +209,9 @@ body {
   border-radius: 9px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
+.popup__btn .button--Win {
+  background: #007403;
+}
 .popup__btn button:focus {
   outline: none;
   box-shadow: inset 2px 1px 8px rgba(0, 0, 0, 0.6);

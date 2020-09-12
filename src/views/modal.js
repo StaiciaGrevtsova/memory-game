@@ -13,7 +13,7 @@ class ModalUI {
     const text = this.renderLetters(status);
 
     let fragment = '';
-    const template = ModalUI.modalTemplate(text, button);
+    const template = ModalUI.modalTemplate(status, text, button);
     fragment += template;
 
     this.popup.insertAdjacentHTML('afterbegin', fragment);
@@ -58,14 +58,14 @@ class ModalUI {
     `;
   }
 
-  static modalTemplate(status, buttonText) {
+  static modalTemplate(status, text, buttonText) {
     return `
     <div class="popup">
       <div class="popup__text">
-        ${status}
+        ${text}
       </div>
       <div class="popup__btn">
-        <button id="play">${buttonText}</button>
+        <button id="play" class="button--${status}">${buttonText}</button>
       </div>
     </div>
     `;
